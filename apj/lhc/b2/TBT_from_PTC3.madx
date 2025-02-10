@@ -1,0 +1,311 @@
+option, -echo, -info,  warn;
+
+
+
+seqedit, sequence=LHCB2;
+flatten;
+!cycle, start=MKI.A5R8.B2;!injection
+!cycle, start=BPM.11L4.B2; !ac_dipole
+cycle, start=BPM.11L4.B2;
+endedit;
+
+    on_x1   := 0; on_x2   := 0; on_x5   := 0; on_x8   := 0;
+    on_sep1 := 0; on_sep2 := 0; on_sep5 := 0; on_sep8 := 0;
+    on_alice:= 0; on_lhcb := 0; on_a8 := 0; on_o8 := 0;
+
+
+use, period=LHCB2;
+ksf.b1         :=     0;  // Turning off chromaticity correctors
+ksd.b1         :=     0;
+ksf.b2         :=     0;
+ksd.b2         :=     0;
+
+!!!!!!!!!!!!!!!IR1 variables
+
+errq1l1 = 0;
+errq2l1 = 0;
+errq3l1 = 0;
+errq4l1.B2 = 0;
+errq5l1.B2 = 0;
+errq6l1.B2 = 0;
+errq1r1 = 0;
+errq2r1 = 0;
+errq3r1 = 0;
+errq4r1.B2 = 0;
+errq5r1.B2 = 0;
+errq6r1.B2 = 0;
+
+corrq1l1 = 0;
+corrq1r1 = 0;
+corrq2l1 = 0;
+corrq3l1 = 0;
+corrq4l1.B2 = 0;
+corrq6l1.B2 = 0;
+corrq2r1 = 0;
+corrq3r1 = 0;
+corrq4r1.B2 = 0;
+corrq6r1.B2 = 0;
+
+errsq1l1 = 0;
+errsq2l1 = 0;
+errsq3l1 = 0;
+
+errsq1r1 = 0;
+errsq2r1 = 0;
+errsq3r1 = 0;
+
+
+errsqx3l = 0;
+errsqx3r = 0;
+corrsqx3l = 0;
+corrsqx3r = 0;
+
+!!!!!!!!!!!!!!IR5 variables
+
+errq1l5 = 0;
+errq2l5 = 0;
+errq3l5 = 0;
+errq4l5.B1 = 0;
+errq5l5.B1 = 0;
+errq6l5.B1 = 0;
+errq1r5 = 0;
+errq2r5 = 0;
+errq3r5 = 0;
+errq4r5.B1 = 0;
+errq5r5.B1 = 0;
+errq6r5.B1 = 0;
+
+corrq1l5 = 0;
+corrq1r5 = 0;
+corrq2l5 = 0;
+corrq3l5 = 0;
+corrq4l5.B1 = 0;
+corrq6l5.B1 = 0;
+corrq2r5 = 0;
+corrq3r5 = 0;
+corrq4r5.B1 = 0;
+corrq6r5.B1 = 0;
+
+
+errsq1l5 = 0;
+errsq2l5 = 0;
+errsq3l5 = 0;
+
+errsq1r5 = 0;
+errsq2r5 = 0;
+errsq3r5 = 0;
+
+
+errsqx3l = 0.0;
+errsqx3r = 0;
+corrsqx3l = 0;
+corrsqx3r = 0;
+
+!!!!!!!!!!!!!!IR2 variables
+errq1l2 = 0;
+errq2l2 = 0;
+errq3l2 = 0;
+errq4l2.B1 = 0;
+errq5l2.B1 = 0;
+errq6l2.B1 = 0;
+errq1r2 = 0;
+errq2r2 = 0;
+errq3r2 = 0;
+errq4r2.B1 = 0;
+errq5r2.B1 = 0;
+errq6r2.B1 = 0;
+
+
+
+corrq1l2 = 0;
+corrq1r2 = 0;
+corrq2l2 = 0;
+corrq3l2 = 0;
+corrq4l2.B1 = 0;
+corrq6l2.B1 = 0;
+corrq2r2 = 0;
+corrq3r2 = 0;
+corrq4r2.B1 = 0;
+corrq6r2.B1 = 0;
+
+
+errsq1l2 = 0;
+errsq2l2 = 0;
+errsq3l2 = 0;
+
+errsq1r2 = 0;
+errsq2r2 = 0;
+errsq3r2 = 0;
+
+
+!!!!!!!!!!!!!!IR8 variables
+errq1l8 = 0;
+errq2l8 = 0;
+errq3l8 = 0;
+errq4l8.B1 = 0;
+errq5l8.B1 = 0;
+errq6l8.B1 = 0;
+errq1r8 = 0;
+errq2r8 = 0;
+errq3r8 = 0;
+errq4r8.B1 = 0;
+errq5r8.B1 = 0;
+errq6r8.B1 = 0;
+
+corrq1l8 = 0;
+corrq1r8 = 0;
+corrq2l8 = 0;
+corrq3l8 = 0;
+corrq4l8.B1 = 0;
+corrq6l8.B1 = 0;
+corrq2r8 = 0;
+corrq3r8 = 0;
+corrq4r8.B1 = 0;
+corrq6r8.B1 = 0;
+
+
+errsq1l8 = 0;
+errsq2l8 = 0;
+errsq3l8 = 0;
+
+errsq1r8 = 0;
+errsq2r8 = 0;
+errsq3r8 = 0;
+
+
+
+
+
+
+
+
+
+
+!!to correct a bug in ats_30cm.madx
+!kqx.l5   = kqx.l5   ;
+!ktqx1.l5 = ktqx1.l5 ;
+!ktqx2.l5 = ktqx2.l5 ;
+!kqx.r5   = kqx.r5   ;
+!ktqx1.r5 = ktqx1.r5 ;
+!ktqx2.r5 = ktqx2.r5 ;
+
+
+!kqx.l1   = kqx.l1   ;
+!ktqx1.l1 = ktqx1.l1 ;
+!ktqx2.l1 = ktqx2.l1 ;
+!kqx.r1   = kqx.r1   ;
+!ktqx1.r1 = ktqx1.r1 ;
+!ktqx2.r1 = ktqx2.r1 ;
+
+
+
+
+call, file = "IR_errors.madx";
+
+
+
+!!!!!! errors in Left triplet IP1
+MQY.4L1.B2,                K1 := -kq4.l1b2+errq4l1.B2+corrq4l1.B2;
+MQML.5L1.B2,               K1 := -kq5.l1b2+errq5l1.B2;
+MQML.6L1.B2,               K1 := -kq6.l1b2+errq6l1.B2+corrq6l1.B2;
+
+
+
+
+
+MQSX.3L1,  K1S := kqsx3.l1+errsqx3l+corrsqx3l;
+
+MQXA.3L1, K1 := kqx.l1+errq3l1+corrq3l1, K1S := errsq3l1;
+MQXB.B2L1, K1 := -kqx.l1-ktqx2.l1+errq2l1+corrq2l1, K1S := errsq2l1;
+MQXB.A2L1, K1 := -kqx.l1-ktqx2.l1+errq2l1+corrq2l1, K1S := errsq2l1;
+MQXA.1L1,  K1 := kqx.l1+ktqx1.l1+errq1l1+corrq1l1, K1S := errsq1l1;
+
+
+
+!!!!!errors in Right triplet
+MQY.4R1.B2,                K1 := -kq4.r1b2+errq4r1.B2+corrq4r1.B2 ;
+MQML.5R1.B2,               K1 := -kq5.r1b2+errq5r1.B2;
+MQML.6R1.B2,               K1 := -kq6.r1b2+errq6r1.B2+corrq6r1.B2;
+
+MQSX.3R1,  K1S := kqsx3.r1+errsqx3r+corrsqx3r;
+
+MQXA.1R1,  K1 := kqx.r1+ktqx1.r1+errq1r1+corrq1r1, K1S := errsq1r1;
+MQXB.A2R1, K1 := -kqx.r1-ktqx2.r1+errq2r1+corrq2r1, K1S := errsq2r1;
+MQXB.B2R1, K1 := -kqx.r1-ktqx2.r1+errq2r1+corrq2r1, K1S := errsq2r1;
+MQXA.3R1, K1 := kqx.r1+errq3r1+corrq3r1, K1S := errsq3r1;
+
+
+!errors left triplet IR5
+MQXA.3L5, K1 := kqx.l5+errq3l5+corrq3l5, K1S := errsq3l5;
+MQXB.B2L5, K1 := -kqx.l5-ktqx2.l5+errq2l5+corrq2l5, K1S := errsq2l5;
+MQXB.A2L5, K1 := -kqx.l5-ktqx2.l5+errq2l5+corrq2l5, K1S := errsq2l5;
+MQXA.1L5,  K1 := kqx.l5+ktqx1.l5+errq1l5+corrq1l5, K1S := errsq1l5;
+
+
+!errors rigth triplet IR5
+MQXA.1R5,  K1 := kqx.r5+ktqx1.r5+errq1r5+corrq1r5, K1S := errsq1r5;
+MQXB.A2R5, K1 := -kqx.r5-ktqx2.r5+errq2r5+corrq2r5, K1S := errsq2r5;
+MQXB.B2R5, K1 := -kqx.r5-ktqx2.r5+errq2r5+corrq2r5, K1S := errsq2r5;
+MQXA.3R5, K1 := kqx.r5+errq3r5+corrq3r5, K1S := errsq3r5;
+
+
+
+!errors left triplet IR2
+MQXA.3L2, K1 := kqx.l2+errq3l2+corrq3l2, K1S := errsq3l2;
+MQXB.B2L2, K1 := -kqx.l2-ktqx2.l2+errq2l2+corrq2l2, K1S := errsq2l2;
+MQXB.A2L2, K1 := -kqx.l2-ktqx2.l2+errq2l2+corrq2l2, K1S := errsq2l2;
+MQXA.1L2,  K1 := kqx.l2+ktqx1.l2+errq1l2+corrq1l2, K1S := errsq1l2;
+
+
+!errors rigth triplet IR2
+MQXA.1R2,  K1 := kqx.r2+ktqx1.r2+errq1r2+corrq1r2, K1S := errsq1r2;
+MQXB.A2R2, K1 := -kqx.r2-ktqx2.r2+errq2r2+corrq2r2, K1S := errsq2r2;
+MQXB.B2R2, K1 := -kqx.r2-ktqx2.r2+errq2r2+corrq2r2, K1S := errsq2r2;
+MQXA.3R2, K1 := kqx.r2+errq3r2+corrq3r2, K1S := errsq3r2;
+
+
+
+
+!errors left triplet IR8
+MQXA.3L8, K1 := kqx.l8+errq3l8+corrq3l8, K1S := errsq3l8;
+MQXB.B2L8, K1 := -kqx.l8-ktqx2.l8+errq2l8+corrq2l8, K1S := errsq2l8;
+MQXB.A2L8, K1 := -kqx.l8-ktqx2.l8+errq2l8+corrq2l8, K1S := errsq2l8;
+MQXA.1L8,  K1 := kqx.l8+ktqx1.l8+errq1l8+corrq1l8, K1S := errsq1l8;
+
+
+!errors rigth triplet IR8
+MQXA.1R8,  K1 := kqx.r8+ktqx1.r8+errq1r8+corrq1r8, K1S := errsq1r8;
+MQXB.A2R8, K1 := -kqx.r8-ktqx2.r8+errq2r8+corrq2r8, K1S := errsq2r8;
+MQXB.B2R8, K1 := -kqx.r8-ktqx2.r8+errq2r8+corrq2r8, K1S := errsq2r8;
+MQXA.3R8, K1 := kqx.r8+errq3r8+corrq3r8, K1S := errsq3r8;
+
+
+
+
+zx = 0.0001;
+zpx = 0;
+zy = 0.0001;
+zpy = 0;
+
+call, file="icx.madx";
+
+
+
+
+
+
+
+!!Ejemnplos en http://frs.home.cern.ch/frs/mad-X_examples/ptc_track/Example2/fv9_2.madx
+PTC_CREATE_UNIVERSE;
+PTC_CREATE_LAYOUT,model=2,method=6, nst=10;
+PTC_START,x =zx, px =zpx, y =zy, py =zpy ;
+call, file="bpm.obs_ptc.madx"; 
+PTC_TRACK,icase=4,  CLOSED_ORBIT=false, dump, 
+       element_by_element,
+       turns=100, ffile=1, norm_no=1,
+       onetable;
+PTC_TRACK_END;
+PTC_END;
+
+
+call, file="icy.madx";

@@ -1,0 +1,20 @@
+home_dir=$(readlink -f $(dirname $(readlink -f "$0"))/../..)
+###Hacer una copia exacta del directorio apj/ en su home_dir
+###Descargar la última version de madx en  https://mad.web.cern.ch/mad/, copiarla en algún directorio (en este ejemplo /Users/jfcp/bin/), darle un nombre que la identifique (en este ejemplo madx), y si es necesario modificar la siguiente linea 
+madx_program=$home_dir/madx
+###Es posible que tenga que cambiar python por otro nombre
+###################Nominal Files ############################
+python  $home_dir/apj/get_nom_files.py -id=$home_dir/apj/lhc/b1/  -od=$home_dir/IR1_exp/b1_optic_files/ -b=1 -mx=$madx_program -nc
+python  $home_dir/apj/get_nom_files.py -id=$home_dir/apj/lhc/b2/  -od=$home_dir/IR1_exp/b2_optic_files/ -b=2 -mx=$madx_program -nc
+
+
+#################################################################################################################################################################################################################
+####################################################data analysis for both beams (IR1) with clean TBTs ######################################################################
+python  $home_dir/apj/ActionPhaseJump.py -b=1  -ip=1 -ab=BPMSW.1L1.B1 -pb=BPMSW.1R1.B1 -lb=BPMSY.4L1.B1 -rb=BPMSY.4R1.B1  -sf=$home_dir/apj/lhc/data/b1/tbts/tbt1.sdds.shifted,$home_dir/apj/lhc/data/b1/tbts/tbt2.sdds.shifted,$home_dir/apj/lhc/data/b1/tbts/tbt3.sdds.shifted  -md=$home_dir/IR1_exp/b1_optic_files/ -gd=$home_dir/apj/lhc/data/b1/measured_lattice/ -lk=$home_dir/apj/lhc/data/b1/kmod/IP1/results1.tfs  -od=$home_dir/IR1_exp/b1_analysis/ -p
+
+python  $home_dir/apj/ActionPhaseJump.py -b=2  -ip=1 -ab=BPMSW.1R1.B2 -pb=BPMSW.1R1.B2 -lb=BPMSY.4L1.B2 -rb=BPMSY.4R1.B2 -sf=$home_dir/apj/lhc/data/b2/tbts/tbt1.sdds.shifted,$home_dir/apj/lhc/data/b2/tbts/tbt2.sdds.shifted,$home_dir/apj/lhc/data/b2/tbts/tbt3.sdds.shifted   -md=$home_dir/IR1_exp/b2_optic_files/ -gd=$home_dir/apj/lhc/data/b2/measured_lattice/ -lk=$home_dir/apj/lhc/data/b2/kmod/IP1/results1.tfs  -od=$home_dir/IR1_exp/b2_analysis/ -p
+
+
+#################################################################################################################################################################################################################
+python  $home_dir/apj/plot_expVssim.py -t1=$home_dir/IR1_exp/b1_analysis/tbt3/ -t2=$home_dir/IR1_exp/b2_analysis/tbt3/ -mx=$madx_program
+#################################################################################################################################################################################################################

@@ -1,0 +1,7 @@
+@ APP %le 0
+@ PATH %s /user/slops/data/LHC_DATA/OP_DATA/Betabeat/2022-04-27/LHCB2/Results/b2_3files_12percent_30cm_beforecorrection
+@ DATE %s Thu Apr 28 00:32:51 2022
+* NAME DELTA
+$ %s %le
+b2_re_ip7_knob   -4.3754007903300154e-05
+b2_im_ip7_knob   -0.0015709392182469894

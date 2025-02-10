@@ -1,0 +1,4 @@
+*   LABEL             BETASTAR         BETASTAR_ERR                WAIST            WAIST_ERR            BETAWAIST        BETAWAIST_ERR
+$     %s                  %le                  %le                  %le                  %le                  %le                  %le
+    "MQXA1.R1-MQXA1.L1"           0.66635           0.01424                    0.33226           0.00758             0.35787           0.00021
+    "MQXA1.R1-MQXA1.L1"           0.46640           0.00501                    0.11139           0.00944             0.43808           0.00031
